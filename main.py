@@ -12,5 +12,9 @@ app.include_router(blog.router)
 app.include_router(user.router)
 app.include_router(authentication.router)
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
